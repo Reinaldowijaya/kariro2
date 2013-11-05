@@ -1,0 +1,27 @@
+
+
+{% extends "Base.html" %}
+
+{% block content %}
+    <div class="main">
+		
+		<h3>Lowongan Kerja Terbaru</h3>
+		
+			{% if latest_job_vacancy %}
+				
+				{% for job in latest_job_vacancy %}
+					<strong><a href="{{job.get_absolute_url}}{{job.slug}}">{{ job.name }}</a></strong><br>
+					{{job.company.user.username}} - {{job.company.address}}<br>
+					{{job.responsibilities|safe}}
+					{{job.job_type }} <br> <br>
+				{% endfor %}
+				
+			{% else %}
+				<p>No polls are available.</p>
+			{% endif %}
+		
+	
+
+    </div>
+
+{% endblock %}

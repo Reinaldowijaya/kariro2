@@ -1,0 +1,21 @@
+
+
+{% extends "Base.html" %}
+
+{% block content %}
+    <div class="main">
+		
+		<h3>New Job Vacancy</h3>
+		
+				<form action="{% url 'post_job' %}" method="post">
+				
+				{% csrf_token %}
+				
+				{{job_form.as_p}}
+				<input type="submit" value="create" /><br>
+			
+</form>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "Base.html" %}
+
+{% block content %}
+    <div class="main">
+			
+					<strong><a href="{{company.get_absolute_url}}">{{ company.company_name }}</a></strong><br>
+
+							{{job.name}}<br>
+							{{job.location}}<br>
+							{{job.responsibilities}}<br>
+
+							<br>Applicants : 							{{applications.count}} <br>
+
+							{% for application in applications %}
+								{{application.applicant.userprofile.user.first_name}}  {{application.applicant.userprofile.user.last_name}} <br>
+								Matching rate: {{application.matching}}
+								{{application.applicant.education}}
+
+								
+							{% endfor %}
+
+
+    </div>
+
+{% endblock %}

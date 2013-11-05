@@ -1,0 +1,483 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  color: #34495e;
+}
+.jumbotron{
+	margin-bottom: 0;
+	background-color: #FFFFFF;
+}
+
+/* FONT STYLES
+-------------------------------------------------- */
+
+@font-face {
+  font-family: 'FuturaLT';
+  src: url('../fonts/FuturaLT/FuturaLT-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+span.kariro{
+	font-family: 'FuturaLT';
+	font-weight: bold;
+	color: #34495E;
+}
+span.kariro span{
+	font-size: 70%;
+}
+span.white{
+	color: #FFFFFF;
+}
+span.orange{
+	color: #FF931E;
+}
+
+/* UI
+-------------------------------------------------- */
+
+.btn.btn-full{
+	width: 100%;
+}
+
+.label{
+	font-weight: normal;
+}
+
+.checkbox .icons .first-icon, .checkbox .icons .second-icon{
+	color: #FFFFFF;
+	background-color: #34495E;
+}
+
+.checkbox.checked{
+	color: #FFFFFF;
+}
+
+.checkbox:hover, .checkbox:hover .icons .first-icon, .checkbox.checked .second-icon{
+	color: #FF931E;
+}
+
+.panel, .panel-body, .panel-heading{
+	padding: 0;
+	margin: 0;
+}
+
+.socmed img{
+	height: 40px;
+	border-radius: 8px;
+}
+
+.facebook{
+	background-color: #3b5998;
+}
+
+.twitter{
+	background-color: #00acee;
+}
+
+.googleplus{
+	background-color: #d34836;
+}
+
+a.hover-white:hover{
+	color: #FFFFFF;
+}
+
+/* LANDING
+-------------------------------------------------- */
+.landing-text-top p{
+	font-size: 2em;
+
+}
+.landing-subscribe{
+	width: 50%;
+}
+
+/* NAVBAR
+-------------------------------------------------- */
+
+.navbar-wrapper{
+	margin: 0 !important; 
+	border-bottom: 1px solid #FF931E;
+}
+
+.navbar {
+	background-color: #FFFFFF;
+  	border-radius: 0;
+}
+
+.navbar .navbar-brand {
+	padding: 0 0 0 30px;
+}
+
+.navbar-brand a img{
+	margin-top: 10px;
+	height: 50px;
+}
+
+.navbar-collapse > li > a{
+	display: block;
+}
+
+.navbar-collapse > ul > li > a.navbar-tabs{
+	font-size: 1.3em;
+	font-weight: lighter;
+}
+
+.navbar-collapse > ul > li > button{
+	margin-top: 13px;
+}
+
+/* FOLD
+-------------------------------------------------- */
+
+#home-fold{
+	height: 100%;
+	background-color: #FFFFFF;
+}
+
+#home-fold .fold-text h1{
+	margin-bottom: 50px;
+}
+
+#home-fold .fold-text p{
+	margin-bottom: 30px;
+}
+
+#home-fold .fold-text p:last-child{
+	margin-bottom: 10px;
+}
+
+
+/* HOMEPAGE SECTION
+-------------------------------------------------- */
+.section{
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.section .section-title{
+	margin-bottom: 20px;
+}
+
+.section .section-title h2 {
+  	font-weight: normal;
+}
+
+.divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* JOB SEEKER
+-------------------------------------------------- */
+
+#jobseekers{
+	background-color: #E6E6E6;
+}
+
+.thumbnail{
+	padding: 30px 0px 10px 0px;
+	border-radius: 8px;
+}
+
+.thumbnail > img{
+	height: 70px;
+}
+
+.thumbnail .caption{
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.thumbnail .caption p.caption-title{
+	color: #34495E;
+	font-weight: bold;
+}
+
+.thumbnail.subscribe{
+	padding: 30px 20px 20px 20px;
+	background-color: #FF931E;
+}
+
+.thumbnail.subscribe p{
+	font-size: 1.3em;
+}
+
+.thumbnail.subscribe div{
+	margin-top: 10px;
+}
+
+
+/* COMPANIES
+-------------------------------------------------- */
+
+#companies{
+	background-color: #FFFFFF;
+}
+.companies-logo {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.companies-logo img{
+	max-width: 100%;
+}
+
+.companies-more-info p{
+	font-size: 1.2em;
+}
+
+/* ARTICLES
+-------------------------------------------------- */
+
+#articles{
+	background-color: #E6E6E6;
+}
+
+.articles-thumbnail{
+	background-color: #FFFFFF;
+	padding: 0;
+	border-radius: 8px;
+}
+
+.articles-image{
+	border-radius: 6px;
+	height: 200px;
+	width: 100%;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+
+.articles-image img{
+	min-height: 100px;
+	min-width: 100%;
+}
+
+.articles-content{
+	padding: 0px 15px 20px 15px;
+}
+
+.articles-content h6,.articles-content p{
+	line-height: 1.6em;
+}
+
+p.articles-date{
+	font-size: 0.7em;
+	font-weight: lighter;
+}
+
+/* TEAM
+-------------------------------------------------- */
+
+.team-thumbnail img{
+	height: 120px;
+	margin-bottom: 0;
+}
+
+p.team-title{
+	font-size: 0.95em;
+	font-weight: lighter;
+}
+
+
+/* CONTACT
+------------------------- */
+
+#contact{
+	background-color: #FFFFFF;
+}
+
+#contact .section-title h2{
+	margin-bottom: 20px;
+}
+
+a.email, a.phone{
+	font-size: 1.3em;
+	font-weight: bold;
+	color: #34495E;
+}
+
+/* FOOTER
+-------------------------------------------------- */
+#footer{
+	background-color: #34495E;
+	padding: 20px 20px 20px 20px;
+}
+
+.footer-company img{
+	height: 100px;
+}
+
+.footer-company p{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.footer-company p:last-child{
+	margin-top: 20px;
+}
+
+.footer-title{
+	font-size: 1.2em;
+	color: #FFFFFF;
+	margin-bottom: 0;
+}
+
+.footer-sitemap{
+	margin-top: 0;
+	line-height: 1.7em;
+}
+
+.footer-backtotop{
+	padding-top: 40px;
+	line-height: 1.4em;
+}
+
+#footer .socmed img{
+	margin-top: 10px;
+	height: 60px;
+}
+
+.footer-address{
+	margin-top: 100px;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+/*FOR PHONE
+---------------------------- */
+
+@media (max-width: 768px) {
+
+	/* FONT STYLES
+	-------------------- */
+
+	h1{
+		font-size: 40px;
+	}
+
+	h2{
+		font-size: 35px;
+	}
+
+	/* GLOBAL
+	-------------------- */
+
+	.jumbotron{
+		padding: 15px;
+	}
+
+
+	/* NAVBAR
+	-------------------- */
+
+	.navbar-brand{
+		width: 90%;
+	}
+
+	.navbar-toggle{
+		margin: 18px 0;
+		padding: 6px 8px 6px 8px;
+		background-color: #34495E;
+		border: none;
+	}
+	
+	.icon-bar {
+		background-color: #FFFFFF;
+		margin: 4px 0 4px 0;
+	}
+
+	.navbar-brand a img{
+		display: block;
+		margin: 10px auto;
+	}
+
+	.navbar-collapse{
+		border: none;
+	}
+
+	.navbar-collapse ul{
+		width: 100%;
+	}
+
+	.navbar-collapse ul li{
+		border-top:1px solid #F5F5FA;
+		text-align: center;
+		height: 40px;
+	}
+
+	.navbar-collapse ul li a{
+		margin-top: -15px;
+	}
+
+	.navbar-collapse > ul > li > button{
+		margin-top: 3px;
+	}
+
+	/* HOME-FOLD
+	-------------------- */
+
+	#home-fold{
+		height:400px;
+	}
+
+	#home-fold .fold-text h1{
+		margin-bottom: 20px;
+	}
+
+	#home-fold .fold-text p{
+		margin-bottom: 20px;
+	}
+
+	#home-fold .fold-text p:last-child{
+		margin-bottom: 10px;
+	}
+
+	/* JOBSEEKERS
+	-------------------- */ 
+
+	.thumbnail{
+		padding: 5px 5px;
+	}
+
+	.thumbnail .caption{
+		padding: 0;
+	}
+
+	.thumbnail.subscribe p{
+		font-size: 1.1em;
+	}
+
+	/* ARTICLES
+	-------------------- */
+
+	.articles-thumbnail{
+		padding: 20px 10px;
+		margin-bottom: 30px;
+	}
+
+	.articles-image{
+		margin-bottom: 0px;
+	}
+
+	.articles-content{
+		padding: 0px 3px 5px 3px;
+	}
+
+}
+
+/*FOR TABLETS AND BELOW
+---------------------------- */
+
+@media (max-width: 992px) {
+
+	.navbar-collapse > ul > li > a.navbar-tabs{
+		font-size: 1.1em;
+	}
+
+}
+

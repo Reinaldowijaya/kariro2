@@ -1,0 +1,196 @@
+
+/* SEARCH
+-------------------------------------------------- */
+
+#search{
+	padding-top: 20px;
+	padding-bottom: 15px;
+	background-color: #34495E;
+	color: #FFFFFF;
+	font-size: 1.2em;
+}
+
+#search .search-type{
+	position: relative;
+	top: -15px;
+}
+
+/* JOBS
+-------------------------------------------------- */
+
+#jobs{
+	padding: 20px 0;
+	background-color: #FFFFFF;
+}
+
+.thumbnail-title h2{
+		font-size: 1.3em;
+		font-weight: normal;
+		margin-bottom: 10px;
+		padding-left: 30px;
+	}
+
+	/* SIDEPANEL
+	--------------------- */
+
+	#jobs-sidepanel{
+		border: 2px solid #40B4E5;
+		border-radius: 6px;
+		padding: 10px 5px 5px 5px;
+		background-color: #FFFFFF;
+	}
+
+	#jobs-sidepanel .panel{
+		margin: 0;
+		border: 1px solid #FFFFFF;
+		border-radius: 5px;
+	}
+
+	#jobs-sidepanel .panel-title{
+		background-color: #40B4E5;
+		color: #FFFFFF;
+		height: 100%;
+	}
+
+	#jobs-sidepanel .panel-title p{
+		display: inline-block;
+		height: 100%;
+		width: 90%;
+		margin: 0;
+		padding: 10px 0 0 15px;
+		font-size: 1.2em;
+	}
+
+	#jobs-sidepanel .panel-title span.glyphicon{
+		margin: 0;
+		width: 5%;
+		color: inherit;	
+	}
+
+	#jobs-sidepanel .panel-title a:hover{
+		color: #34495E;
+	}
+
+	#jobs-sidepanel .list-group{
+		list-style: none;
+		margin: 0;
+	}
+
+	#jobs-sidepanel .list-group a li{
+		font-size: 0.8em;
+		padding: 0px 0 0 15px;
+		background-color: #FFFFFF;
+	}
+
+	/* MAINPANEL
+	--------------------- */
+
+	#jobs-mainpanel{
+		padding: 0;	
+	}
+
+		/* HIGHLIGHT
+		--------------------- */
+
+		#job-highlight{
+			border-radius: 6px;
+			padding: 10px 5px 5px 5px;
+		}
+
+		#job-highlight .panel{
+			padding: 0;
+			border-radius: 6px;
+			background-color: #E6E6E6;
+			color: #808080;
+			border: 1px solid #F5F5FA;
+			-webkit-transition: 0.25s linear;
+	  		-moz-transition: 0.25s linear;
+	  		-o-transition: 0.25s linear;
+		 	transition: 0.25s linear;
+		}
+
+		#job-highlight .panel:hover{
+			color: #34495E;
+			background-color: #F5F5FA;
+		}
+
+		#job-highlight .panel-heading{
+			padding: 25px 20px;
+			background-color: #FFFFFF;
+		}
+
+		#job-highlight .panel-heading img{
+			margin: 0 auto;
+		}
+
+		#job-highlight .panel-body{
+			padding: 25px 25px 10px 25px;
+		}
+
+		#job-highlight .job-descp h4{
+			font-size: 0.9em;
+			line-height: 1.7em;
+		}
+
+		#job-highlight .job-descp p, #job-highlight .job-additional .job-location span{
+			font-size: 0.8em;
+			line-height: 1.5em;
+		}
+
+		#job-highlight .job-additional > div{
+			float: left;
+			width: 50%;
+		}
+
+
+		/* RECENT
+		--------------------- */
+
+		#recent-panel{
+			border: 1px solid #808080;
+			border-radius: 6px;
+		}
+
+		#recent-panel ul{
+			padding: 0;
+			margin: 0;
+		}
+
+		#recent-panel ul li{
+			padding: 0;
+			list-style: none;
+		}
+
+		.recent-image img{
+			max-width: 100%;
+			height: auto;
+		}
+
+
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+/*FOR PHONE
+---------------------------- */
+
+@media (max-width: 768px) {
+
+	/* SEARCH
+	-------------------- */
+
+	#search input{
+		margin-bottom: 5px;
+	}
+
+	#search button{
+		position: relative;
+		top: 30px;
+	}
+
+	#search .search-type{
+		position: relative;
+		top: -65px;
+	}
+
+}

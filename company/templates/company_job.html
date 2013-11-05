@@ -1,0 +1,24 @@
+{% extends "Base.html" %}
+
+{% block content %}
+    <div class="main">
+			
+					<strong><a href="{{company.get_absolute_url}}">{{ company.company_name }}</a></strong><br>
+					
+					{% if job_list %}
+
+						{% for job in job_list %}
+
+							<a href="{{job.id}}">{{job.name}}</a><br>
+							{{job.location}}<br>
+							{{job.created}}<br>
+							{{job.modified}}<br>
+							{{job.application_set.all.count}}<br>
+
+						{% endfor %}
+					{% endif %}	
+					
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends "Base.html" %}
+
+{% block content %}
+    <div class="main">
+			
+					<strong>{{ userprofile.user.first_name }} {{userprofile.user.last_name}}</a></strong><br>
+					{{userprofile.headline}}<br>
+					<br>Summary<br>
+					{{userprofile.summary}}<br>
+					
+					Skills
+					{% for skill in userprofile.skill.all %}
+					<br>{{skill.name}}
+					{% endfor %}
+					
+					<form  method="POST" action="{% url 'userprofile' %}">
+					{% csrf_token %}
+					{% for field in resumeform %}
+							{{ field.label }}
+							{{ field.non_field_errors }}
+							{{ field.errors}}
+							{{ field }}<br>
+					{% endfor %}
+					<input type="submit" name="profile" value="Submit" />	
+
+					<!-- 
+					{{ resumeform.headline.errors }}		
+					{{ resumeform.headline.non_field_errors }}
+					<label for="headline">Headline:</label>
+					{{ resumeform.headline }}<br>
+					{{ resumeform.summary.errors }}
+					{{ resumeform.summary.non_field_errors }}
+					<label for="summary">Deskripsi:</label>					
+					{{ resumeform.summary }} <br>
+					{{ resumeform.skill.non_field_errors }}
+					{{ resumeform.skill.errors }}
+					<label for="summary">Skill:</label>					
+					{{ resumeform.skill }}  -->
+					
+					
+					
+					
+					<br><br>Education
+					{% for education in userprofile.education_set.all %}
+					<br><strong> {{education.institution}}</strong> <br>
+					{{education.location}}<br>
+					{{education.level}} {{education.course}}<br>
+					{{education.description}}<br>
+					Graduated <br>
+					{% endfor %}
+					
+					{{ educationformset.management_form }}
+					{% for form in educationformset.forms %}	
+						{% for field in form %}
+							{{ field.label }}
+							{{ field.non_field_errors }}
+							{{ field.errors}}
+							{{ field }}<br>
+						{% endfor %}
+					<input type="submit" name="education" value="Submit" />
+					{% endfor %}
+					
+					
+					<br><br>Work Experience
+					{% for we in userprofile.work_experience_set.all %}
+					<br><strong> {{we.position}} at {{we.company_name}}</strong> <br>
+					{{we.start_date}} - 
+					{% if we.end_date %} 
+						{{we.end_date}} 
+					{% else %} 
+						present 
+					{% endif %}<br>
+					{{we.description}}<br>
+					{% endfor %}
+					<br>
+					{{ workformset.management_form }}
+					{% for form in workformset.forms %}	
+						{% for field in form %}
+							{{ field.label }}
+							{{ field.non_field_errors }}
+							{{ field.errors}}
+							{{ field }}<br>
+						{% endfor %}
+					<input type="submit" name="work" value="Submit" />
+					{% endfor %}
+					
+					<!-- input skill -->
+					<br>Skill<br>
+						{% for field in skillform %}
+							{{ field.label }}
+							{{ field.non_field_errors }}
+							{{ field.errors}}
+							{{ field }}<br>
+						{% endfor %}
+
+					<input type="submit" name="skillform" value="Submit" />
+		
+					
+					</form>
+    </div>
+
+{% endblock %}

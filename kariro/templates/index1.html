@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Kariro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="css/flat-ui.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Custom styles for this template -->
+    <link href="css/kariro.css" rel="stylesheet">
+    
+  </head>
+  <body>
+    <!-- BANNER FOLD
+    ================================================== -->
+
+    <!--<div id="landing">
+      <div class="container">
+        <div class="row col-lg-10">
+          <div class="landing-text-top">
+            <h1>Portal Perkembangan Karir Anda</h1>
+            <br>
+            <p><span class="kariro">kariro</span> adalah karir portal yang akan mempersiapkan dan menghubungkan anda dengan karir impian</p>
+            <p>Daftarkan email anda untuk lowongan kerja terbaru</p>
+            <div class="landing-subscribe">
+              <div class="input-group">
+                <input type="text" class="form-control input-lg" placeholder="email address">
+                <span class="input-group-btn">
+                  <button class="btn btn-success btn-lg" type="button">Daftar</button>
+                </span>
+              </div> 
+            </div><!--subscribe box--><!--
+          </div>
+        </div>
+      </div>
+    </div>-->
+
+    <!-- NAVBAR HEADER
+    ================================================== -->
+
+    <div class="navbar-wrapper">
+      <div class="container">
+        <div class="navbar">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand">
+              <a class="navbar-brand" href="#"><img src="images/header/logo-2.png" alt="Kariro"/></a>
+            </div>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right nav-stacked">
+              <li><a href="jobs.html" class="navbar-tabs">Pekerjaan</a></li>
+              <li><a href="#" class="navbar-tabs">Perusahaan</a></li>
+              <li><a href="#" class="navbar-tabs">Tips Karir</a></li>
+              <li><button type="button" class="btn btn-success">Daftar</button></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BANNER FOLD
+    ================================================== -->
+
+    <!--<div id="home-fold" class="jumbotron">
+      <div class="container">
+        <div class="row fold-text text-center">
+          <h1>Portal Perkembangan Karir Anda</h1>
+          <p class="col-md-10 col-md-offset-1"><span class="kariro">kariro</span> adalah karir portal yang akan mempersiapkan dan menghubungkan anda dengan karir impian</p>
+          <p class="col-md-10 col-md-offset-1">Daftarkan email anda untuk lowongan kerja terbaru</p>
+        </div>
+        <div class="row col-sm-6 col-sm-offset-3">
+          <div class="input-group">
+            <input type="text" class="form-control input-lg" placeholder="email address">
+            <span class="input-group-btn">
+              <button class="btn btn-success btn-lg" type="button">Daftar</button>
+            </span>
+          </div> 
+        </div><!--subscribe box--><!--
+      </div>
+    </div>-->
+
+    <!-- JOB SEEKERS
+    ================================================== -->
+
+    <div class="jumbotron"  id="jobseekers">
+      <div class="container section">
+        <div class="section-title row text-center col-lg-10 col-lg-offset-1">
+          <h2>Menemukan karir setelah lulus tidak repot</h2>
+          <!--<p>Kariro membangun sebuah network untuk membantu kamu mencari karir idaman. Dengan menggabungkan informasi lowongan kerja & magang, tips pengembangan karir dan profil karir yang profesional, kami akan menghubungkan anda dengan perusahaan impian anda</p>-->
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-md-4 text-center">
+            <div class="thumbnail">
+              <img src="{{ STATIC_URL }}images/feature/jalan.png" alt="#"/>
+              <div class="caption">
+                <p class="caption-title">Info Kerja & Magang</p>
+                <p>Dapatkan akses informasi lowongan pekerjaan dan magang terkini dengan satu situs yang dikhususkan untuk graduate students</p>
+              </div>
+            </div>
+          </div><!--Thumbnail 1-->
+          <div class="col-sm-6 col-md-4 text-center">
+            <div class="thumbnail">
+              <img src="{{ STATIC_URL }}images/feature/development.png" alt="#"/>
+              <div class="caption">
+                <p class="caption-title">Tips & Pengembangan Karir</p>
+                <p>Ikuti seminar & artikel tentang tips-tips persiapan memasuki dunia karir bagi anda yang baru lulus serta cara-cara mengembangkan karir anda</p>
+                </p>
+              </div>
+            </div>
+          </div><!--Thumbnail 2-->
+          <div class="col-sm-6 col-md-4 text-center">
+            <div class="thumbnail">
+              <img src="images/feature/profil.png" alt="#"/>
+              <div class="caption">
+                <p class="caption-title">Profil Karir Profesional</p>
+                <p>Tunjukkan kelebihan dan kualifikasi anda dengan menampilkan pofil profesional. Semakin detail profil anda, semakin besar peluang anda </p>
+              </div>
+            </div>
+          </div><!--Thumbnail 3-->
+          <div class="col-sm-6 col-md-4">
+            <div class="thumbnail subscribe"> 
+              <p>Ikuti update terbaru dari <span class="kariro">kariro</span>.com</p>
+              <div class="row col-sm-12">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="email address">
+                  <span class="input-group-btn">
+                    <button class="btn btn-success" type="button">Daftar</button>
+                  </span>
+                </div> 
+              </div><!--input-->
+              <div class="row col-sm-12 socmed">
+                <img src="images/icons/facebook.png" class="facebook" alt="#"/>
+                Like
+              </div>
+              <div class="row col-sm-12 socmed">
+                <img src="images/icons/twitter.png" class="twitter" alt="#"/>
+                Follow 
+              </div>
+            </div>
+          </div><!--Subcribe-->
+        </div><!--Thumbnail row-->
+      </div><!--jobseekers-->
+    </div>
+
+    <!-- COMPANIES
+    ================================================== -->
+
+    <div class="jumbotron" id="companies">
+      <div class="container section">
+        <div class="section-title row text-center">
+          <h2>Perusahaan Partner</h2>
+          <p>Beberapa dari perushaan yang bekerja sama dengan <span class="kariro">kariro<span class="orange">.com</span></span></p>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 col-sm-4 col-md-2 companies-logo"><img src="images/company/kelloggs.png"/></div>
+          <div class="col-xs-6 col-sm-4 col-md-2 companies-logo"><img src="images/company/wwf.png"/></div>
+          <div class="col-xs-6 col-sm-4 col-md-2 companies-logo"><img src="images/company/pinterest.png"/></div>
+          <div class="col-xs-6 col-sm-4 col-md-2 companies-logo"><img src="images/company/wb.png"/></div>
+          <div class="col-xs-6 col-sm-4 col-md-2 companies-logo"><img src="images/company/j-crew.png"/></div>
+          <div class="col-xs-6 col-sm-4 col-md-2 companies-logo"><img src="images/company/microsoft.png"/></div>
+        </div>
+        <div class="companies-more-info row col-md-8 col-md-offset-2 text-center">
+          <p>Dapatkan talent yang tepat untuk perusahaan anda</p>
+          <button type="button" class="btn btn-hg btn-primary btn-wide">Info lebih</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARTICLES
+    ================================================== -->
+
+    <div class="jumbotron" id="articles">
+      <div class="container section">
+        <div class="section-title row text-center">
+          <h2>Recent Articles</h2>
+          <p>Fresh job related news content posted each day</p>
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-md-4">
+            <div class="articles-thumbnail">
+              <div class="articles-image">
+                <img class="img-rounded img-responsive" src="images/article/write-cv.jpg" alt="#"/>
+              </div>
+              <div class="articles-content">
+                <h6>3 Tips Penting Untuk Menulis CV Terbaik</h6>
+                <p class="articles-date">July 22, 2013</p>
+                <p>Tahukah anda kalau departemen HRD di perusahaan mendapatkan ratusan CV setiap harinya? Dengan keadaan seperti ini, tentunya anda diharuskan untuk bisa membuat CV yang menonjol.</p>
+                <button type="button" class="btn btn-primary" href="#">View details &raquo;</button>
+              </div>
+            </div><!-- article-thumbnail -->
+          </div><!-- /.col-lg-4 -->
+          <div class="col-sm-6 col-md-4">
+            <div class="articles-thumbnail">
+              <div class="articles-image">
+                <img class="img-rounded img-responsive" src="images/article/public-speaking.jpg" alt="#"/>
+              </div>
+              <div class="articles-content">
+                <h6>Mengapa “Fresh Graduate” Harus Belajar Public Speaking</h6>
+                <p class="articles-date">July 22, 2013</p>
+                <p>Dalam dunia Kerja, seringkali teman kita yang 'fresh graduate' dianggap belum kompeten untuk menyelesaikan pekerjaan-pekerjaan nyata. Hal ini terjadi karena adanya kesenjangan antara dunia Perguruan Tinggi dengan dunia kerja yang sesungguhnya.</p>
+                <button type="button" class="btn btn-primary" href="#">View details &raquo;</button>
+              </div>
+            </div><!-- article-thumbnail -->
+          </div><!-- /.col-lg-4 -->
+          <div class="col-sm-6 col-md-4">
+            <div class="articles-thumbnail">
+              <div class="articles-image">
+                <img class="img-rounded img-responsive" src="images/article/first-impression.jpg" alt="#"/>
+              </div>
+              <div class="articles-content">
+                <h6>Tips Agar Kesan Pertama Awet!</h6>
+                <p class="articles-date">July 22, 2013</p>
+                <p>Pada artikel yang lain telah dibahas bagaimana memikat calon pembeli pada kesan pertama hanya dalam hitungan detik. Selanjutnya sangat penting untuk dapat mempertahankan sekaligus meningkatkan kesan positif terhadap lawan bicara atau calon pembeli.</p>
+                <button type="button" class="btn btn-primary" href="#">View details &raquo;</button>
+              </div>
+            </div><!-- article-thumbnail -->
+          </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+      </div>
+    </div>
+
+    <!-- WHO WE ARE
+    ================================================== -->
+
+    <!--<div class="container section" id="team">
+      <div class="section-title row text-center">
+        <h2>Who we are</h2>
+        <p>We’re Kariro, a boutique IT Recruitment Consultant. The purpose of our existence is to help tech-companies setting up their business and building their team in Indonesia. Moreover, we also help IT Professionals to leverage their talent-ship and bring it to the next level.</p>
+      </div>
+      <div class="row">
+        <div class="team-thumbnail col-lg-4 text-center">
+          <img class="img-circle" src="#" alt="#"/>
+          <hr>
+          <h4>Reinaldo Wijaya</h4>
+          <p class="team-title">Co-founder & xxx</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <hr>
+          <div class="row">
+            <div class="col-xs-3">fb</div>
+            <div class="col-xs-3">fb</div>
+            <div class="col-xs-3">fb</div>
+            <div class="col-xs-3">fb</div>
+          </div>
+        </div><!-- /.col-lg-4 --> <!--
+        <div class="team-thumbnail col-lg-4 text-center">
+          <img class="img-circle" src="#" alt="#"/>
+          <hr>
+          <h4>Vinsensius Adrian</h4>
+          <p class="team-title">Co-founder & xxx</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <hr>
+          <div class="row">
+            <div class="col-xs-3">fb</div>
+            <div class="col-xs-3">fb</div>
+            <div class="col-xs-3">fb</div>
+            <div class="col-xs-3">fb</div>
+          </div>
+        </div><!-- /.col-lg-4 --> <!--
+        <div class="team-thumbnail col-lg-4 text-center">
+          <img class="img-circle" src="#" alt="#"/>
+          <hr>
+          <h4>Wahyu Saputra</h4>
+          <p class="team-title">Co-founder & xxx</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+          <hr>
+          <div class="row">
+            <div class="col-xs-3">fb</div>
+            <div class="col-xs-3">fb</div>
+            <div class="col-xs-3">fb</div>
+            <div class="col-xs-3">fb</div>
+          </div>
+        </div><!-- /.col-lg-4 --> <!--
+      </div><!-- /.row --> <!--
+    </div> -->
+
+    
+    <!-- CONTACT US
+    ================================================== -->
+
+    <div class="jumbotron" id="contact">
+      <div class="container section">
+        <div class="section-title text-center">
+          <h2>Ada pertanyaan? Hubungi kami</h2>
+          <p>Silahkan email kami di <a href="mailto:#" class="email">xxxx@kariro.com</a> atau hubungi <a href="#" class="phone">xxx xxxxxx</a> </p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- FOOTER
+    ================================================== -->
+
+    <footer>
+      <div class="navbar" id="footer">
+        <div class="footer-company col-sm-4 col-lg-3 col-lg-offset-1 text-center">
+          <img src="images/footer/footer-logo.png" alt=""/>
+          <p>Ikuti update terbaru kami</p>
+          <div class="input-group">
+            <input type="text" class="form-control input-sm flat" placeholder="email address">
+            <span class="input-group-btn">
+              <button class="btn btn-success btn-sm" type="button">Daftar</button>
+            </span>
+          </div> <!-- input group-->
+          <p>Kariro sebuah karir portal yang akan mempersiapkan dan menghubungkan anda dengan karir impian</p>
+        </div><!--column 1-->
+        <div class="footer-sitemap col-sm-3 col-sm-offset-1 col-lg-2 col-lg-offset-0 hidden-xs">
+          <p class="footer-title">Sitemap</p>
+          <ul>
+            <li><a class="hover-white" href="#">Jobs</a></li>
+            <li><a class="hover-white" href="#">Blog</a></li>
+            <li><a class="hover-white" href="#">About</a></li>
+            <li><a class="hover-white" href="#">FAQ</a></li>
+          </ul>
+        </div><!--column 2-->
+        <div class="col-lg-1 col-sm-4 text-center footer-backtotop visible-lg text-center">
+          <a href="#" class="hover-white">
+            <div>
+              <span class="glyphicon glyphicon-circle-arrow-up"></span>
+              <br>Back to top
+            </div>
+          </a>
+        </div><!--column 3-->
+        <div class="col-lg-3 col-sm-4 footer-follow text-center">
+          <p class="col-lg-12 footer-title">Follow kami di</p>
+          <div class="col-xs-4 col-lg-4 socmed"><a href="#"><img class="facebook" src="images/icons/facebook.png" alt=""/></a></div>
+          <div class="col-xs-4 col-lg-4 socmed"><a href="#"><img class="twitter" src="images/icons/twitter.png" alt=""/></a></div>
+          <div class="col-xs-4 col-lg-4 socmed"><a href="#"><img class="googleplus" src="images/icons/googleplus.png" alt=""/></a></div>
+          <div class="col-lg-12 footer-address">
+            <p>Mutiara Taman Palem C6-7
+              <br>Cengkareng, Jakarta Barat
+              <br>Jakarta
+              <br>(021) - xxxxxxx
+            </p>
+          </div>
+        </div><!--column 4-->
+
+      </div>
+    </footer>
+
+
+
+    <!-- Load JS here for greater good =============================-->
+    
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="js/jquery.ui.touch-punch.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/bootstrap-switch.js"></script>
+    <script src="js/flatui-checkbox.js"></script>
+    <script src="js/flatui-radio.js"></script>
+    <script src="js/jquery.tagsinput.js"></script>
+    <script src="js/jquery.placeholder.js"></script>
+    
+  </body>
+</html>
