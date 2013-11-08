@@ -1,12 +1,12 @@
 
 
-{% extends "Base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
     <div class="main">
-		
+
 		<h3>Perusahaan</h3>
-		
+
 				{% for company in company_list %}
 					<strong><a href="{{company.get_absolute_url}}">{{ company.company_name }}</a></strong><br>
 					{{company.industry}}<br>

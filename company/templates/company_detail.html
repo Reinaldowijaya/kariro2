@@ -1,37 +1,42 @@
-{% extends "Base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
     <div class="main">
-			
-					<strong><a href="{{company.get_absolute_url}}">{{ id.company_name }}</a></strong><br>
+
+					<strong><a href="{{id.get_absolute_url}}">{{ id.company_name }}</a></strong><br>
 					{{id.address}}<br>
 					{% if id.logo %}
 						<img src="{{ id.logo.url }}"/><br>
 					{% endif %}
-					
+
+					{% if follow %}
+            				<form  action="/company/1/" method="post">
+               				{% csrf_token %}
+                				<input type="hidden" name="follow" value="{{ id.id }}">
+               				<input type="submit" value="Follow">
+            				</form>
+                                                        {% else %}
+                                                        <form  action="/company/1/" method="post">
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="unfollow" value="{{ id.id }}">
+                                                        <input type="submit" value="unFollow">
+                                                        </form>
+            				{% endif %}
+
 					About {{ id.company_name }}<br>
 					{{ id.description }}<br><br>
-					
+
 					Job Opening :
 
 					{% for job in id.job_vacancy_set.all %}<br>
 
 						{{job.name}}
 						{{job.posted}}
-					
+
 					{% endfor %}
-					
-					
-					<!-- Responsibilities: <br>
-					{{id.responsibilities|safe}}
-					Requirements: <br>
-					{{id.requirements|safe}}
-					<strong>Company Overview:</strong> <br>
-					{{id.company.description}}<br>
-					Employee : {{id.company.employee}}<br>
-					Benefits : {{id.company.benefit}}<br>
-					Bahasa   : {{id.company.bahasa}}<br>
-					{{id.job_type }} <br> <br> -->
+
+
+
 
 
     </div>

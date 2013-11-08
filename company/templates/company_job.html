@@ -1,10 +1,10 @@
-{% extends "Base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
     <div class="main">
-			
+
 					<strong><a href="{{company.get_absolute_url}}">{{ company.company_name }}</a></strong><br>
-					
+
 					{% if job_list %}
 
 						{% for job in job_list %}
@@ -16,8 +16,8 @@
 							{{job.application_set.all.count}}<br>
 
 						{% endfor %}
-					{% endif %}	
-					
+					{% endif %}
+
 
     </div>
 

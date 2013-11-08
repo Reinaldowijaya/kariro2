@@ -1,8 +1,8 @@
 # Django settings for kariro project.
 import os
- 
-PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))  
-LOGIN_URL = '/' 
+
+PROJECT_PATH = os.path.dirname(os.path.abspath(__file__))
+LOGIN_URL = '/'
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -104,7 +104,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
-	
+
 	"allauth.account.context_processors.account",
     "allauth.socialaccount.context_processors.socialaccount",
 )
@@ -152,6 +152,7 @@ INSTALLED_APPS = (
     'allauth.account',
     'allauth.socialaccount',
 	'allauth.socialaccount.providers.facebook',
+    'actstream',
 	#'allauth.socialaccount.providers.linkedin'
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
@@ -164,7 +165,7 @@ SOCIALACCOUNT_AUTO_SIGNUP = (False)
 ACCOUNT_SIGNUP_FORM_CLASS = ('kariro_main.forms.user_form')
 AUTH_PROFILE_MODULE = 'kariro_main.UserProfile'
 
-		
+
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error when DEBUG=False.
@@ -201,3 +202,12 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
  # project/settings.py:
 ACCOUNT_ADAPTER = ('kariro_main.adapter.MyAccountAdapter')
+
+#Stream or NewsFeed Settings
+ACTSTREAM_SETTINGS = {
+    'MODELS': ('auth.user','kariro_main.company','kariro_main.job_vacancy'),
+    'FETCH_RELATIONS': True,
+    'USE_PREFETCH': True,
+    'USE_JSONFIELD':False,
+    'GFK_FETCH_DEPTH': 1,
+}

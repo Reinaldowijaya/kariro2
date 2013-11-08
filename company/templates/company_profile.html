@@ -1,60 +1,60 @@
 
 
-{% extends "Base.html" %}
+{% extends "base.html" %}
 
 {% block content %}
     <div class="main">
-		
+
 		<h3>Edit Profile</h3>
-		
+
 				<form action="{% url 'company_profile' %}" method="post">
-				
+
 				{% csrf_token %}
 				{{ company.company_name }}<br>
 				{{ companyform.company_name.label }}
 				{{ companyform.company_name }}<br>
 				<input type="submit" value="Update" /><br>
-				
+
 				{{ company.address }}<br>
 				{{ companyform.address.label }}
 				{{ companyform.address }}<br>
 				<input type="submit" value="Update" /><br>
-				
+
 				{{ company.location }}<br>
 				{{ companyform.location.label }}
 				{{ companyform.location }}<br>
 				<input type="submit" value="Update" /><br>
-				
+
 				{{ company.contact }}<br>
 				{{ companyform.contact.label }}
 				{{ companyform.contact }}<br>
 				<input type="submit" value="Update" /><br>
-				
+
 				{{ company.description }}<br>
 				{{ companyform.description.label }}
 				{{ companyform.description }}<br>
 				<input type="submit" value="Update" /><br>
-				
+
 				{{ company.employee }}<br>
 				{{ companyform.employee.label }}
 				{{ companyform.employee }}<br>
 				<input type="submit" value="Update" /><br>
-				
+
 				{{ company.benefit }}<br>
 				{{ companyform.benefit.label }}
 				{{ companyform.benefit }}<br>
 				<input type="submit" value="Update" /><br>
-				
+
 				{{ company.bahasa }}<br>
 				{{ companyform.bahasa.label }}
 				{{ companyform.bahasa }}<br>
 				<input type="submit" value="Update" /><br>
-				
+
 				{{ company.industry }}<br>
 				{{ companyform.industry.label }}
 				{{ companyform.industry }}<br>
 				<input type="submit" value="Update" /><br>
-			
+
 </form>
 
     </div>

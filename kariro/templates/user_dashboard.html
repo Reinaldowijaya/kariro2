@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="main">
+                     <strong>Dashboard</strong><br>
+
+                    <strong>{{applicant.username }} </a></strong><br>
+
+
+                    NewsFeed:
+
+                    {% for feed in newsfeed %}<br>
+                    {{feed.actor}} has just posted {{feed.action_object}}
+                    {% endfor %}
+
+
+
+    </div>
+
+{% endblock %}

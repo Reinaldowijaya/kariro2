@@ -9,6 +9,7 @@ from django.dispatch import receiver
 from allauth.account.signals import user_signed_up
 from django.db.models.signals import post_save
 from django.shortcuts import redirect
+from actstream import action
 
 import datetime
 import os
@@ -32,26 +33,26 @@ EDUCATION_CHOICES = (
 		('2', 'S2'),
 		('3', 'S1')
 	)
-	
+
 class TimeStampedModel (models.Model):
-	
+
 	created = models.DateTimeField(
 				auto_now_add=True)
-	modified = models.DateTimeField( 
+	modified = models.DateTimeField(
 				auto_now=True)
 	class Meta:
 		abstract = True
-		
+
 class UserProfile (models.Model):
 	user = models.OneToOneField(User)
 	user_type = models.CharField(max_length=30,choices=USER_CHOICES,default = 'A')
-	
+
 	def __unicode__(self):
 		return self.user.username
-		
+
 	def type(self):
 		return self.user_type
-		
+
 @receiver(user_signed_up)
 def create_profile(request,user,**kwargs):
 
@@ -61,8 +62,8 @@ def create_profile(request,user,**kwargs):
 		user_profile.user_type = usertype
 		user_profile.save()
 		if user_profile.user_type == 'A':
-			Applicant.objects.create(userprofile = user_profile)	
-			
+			Applicant.objects.create(userprofile = user_profile)
+
 class Company(TimeStampedModel):
 	userprofile = models.OneToOneField(UserProfile)
 	company_name = models.CharField(max_length=100,blank=True,null=True)
@@ -75,21 +76,23 @@ class Company(TimeStampedModel):
 	benefit = models.CharField(max_length=100,blank=True,null=True)
 	bahasa = models.CharField(max_length=100,blank=True,null=True)
 	industry = models.ForeignKey('Industry',blank=True,null=True)
-	logo = models.ImageField(upload_to=get_company_logo_path , blank=True)	
-	
+	logo = models.ImageField(upload_to=get_company_logo_path , blank=True)
+
 	def save(self, *args, **kwargs):
 		if not self.id:
             #Newly created object, so set slug
 			#testslug = self.company_name + " " + self.company.company_name
 			self.slug = slugify(self.company_name)
 		return super(Company, self).save(*args, **kwargs)
-		
-	def get_absolute_url(self): 
+
+	def get_absolute_url(self):
 		return reverse('company_detail',None, kwargs={'pk':self.id, 'slug':self.slug})
-		
+
 	def __unicode__(self):
 		return self.userprofile.user.username
-		
+
+
+
 def get_applicant_logo_path(instance, filename):
     return os.path.join("applicant",str(instance.userprofile.user.username), filename)
 
@@ -99,10 +102,10 @@ class Applicant (TimeStampedModel):
 	contact = models.CharField(max_length=20,blank=True)
 	birth_date = models.DateField(blank = True,null=True)
 	expected_salary = models.IntegerField(max_length=20,blank = True,null=True)
-	logo = models.ImageField(upload_to=get_applicant_logo_path , null=True,blank=True)	
+	logo = models.ImageField(upload_to=get_applicant_logo_path , null=True,blank=True)
 	job_type=models.ManyToManyField('Job_Type',blank = True,null=True)
 	gender = models.CharField(max_length=1,choices=USER_CHOICES,blank=True,null=True)
-	
+
 	#Resume
 	headline = models.CharField(max_length = 100 , blank = True,null=True)
 	summary = models.TextField(blank = True,null=True)
@@ -111,10 +114,10 @@ class Applicant (TimeStampedModel):
 	language = models.ManyToManyField('Language',blank = True)
 	resume_external = models.FileField(upload_to=get_applicant_logo_path , blank=True)
 	signup=models.BooleanField(default = False)
-	
+
 	def __unicode__(self):
 		return self.userprofile.user.username
-		
+
 	def done_profile(self):
 		return self.signup
 
@@ -128,7 +131,7 @@ class Job_Vacancy (TimeStampedModel):
 	job_type = models.ForeignKey('Job_Type')
 	company = models.ForeignKey('Company')
 	location = models.ForeignKey('Location')
-	
+
 	#requirements
 	min_age=models.IntegerField(blank = True,null=True)
 	max_age=models.IntegerField(blank = True,null=True)
@@ -141,7 +144,7 @@ class Job_Vacancy (TimeStampedModel):
 	skill = models.ManyToManyField('Skill',blank = True,null=True)
 	language = models.ManyToManyField('Language',blank = True,null=True)
 	description = HTMLField()
-	
+
 	def __unicode__(self):
 		return self.name
 	#Create slug
@@ -152,10 +155,15 @@ class Job_Vacancy (TimeStampedModel):
 			self.slug = slugify(testslug)
 		return super(Job_Vacancy, self).save(*args, **kwargs)
 	#Create Url
-	def get_absolute_url(self): 
+	def get_absolute_url(self):
 		"""Construct the absolute URL for this Item."""
 		return reverse('jobs_detail',None, kwargs={'pk':self.id})
-	
+
+def job_vacancy_created(sender, instance, created, **kwargs):
+    action.send(instance, verb='was saved')
+
+post_save.connect(job_vacancy_created, sender=Job_Vacancy)
+
 class Achievement (TimeStampedModel):
 	applicant = models.ForeignKey(Applicant)
 	location = models.ForeignKey('Location')
@@ -181,19 +189,19 @@ class Education(TimeStampedModel):
 
 def get_institution_logo_path(instance, filename):
     return os.path.join("institution",str(instance.institution.name), filename)
-	
+
 class Institution(TimeStampedModel):
 	name = models.CharField(max_length = 50)
-	logo = models.ImageField(upload_to=get_institution_logo_path , null=True,blank=True)	
+	logo = models.ImageField(upload_to=get_institution_logo_path , null=True,blank=True)
 	def __unicode__(self):
 		return self.name
-		
+
 class Course(TimeStampedModel):
 	name = models.CharField(max_length = 50)
 	def __unicode__(self):
 		return self.name
 
-class Work_Experience(TimeStampedModel): 
+class Work_Experience(TimeStampedModel):
 	applicant = models.ForeignKey(Applicant)
 	location = models.ForeignKey('Location')
 	description = models.TextField()
@@ -204,16 +212,16 @@ class Work_Experience(TimeStampedModel):
 	present = models.BooleanField(default= False)
 	def __unicode__(self):
 		return self.company_name
-	
+
 class Application (TimeStampedModel):
 	id = models.AutoField(primary_key=True)
 	applicant = models.ForeignKey('Applicant')
 	job_vacancy = models.ForeignKey('Job_Vacancy')
 	matching = models.IntegerField(blank=True)
-	
+
 	def __unicode__(self):
 		return self.applicant.userprofile.user.username
-		
+
 	def save(self, *args, **kwargs):
 		if not self.id:
 			matching = 0
@@ -227,7 +235,7 @@ class Application (TimeStampedModel):
 					matching += 20
 				final+=20
 			else:
-				if job.min_age:			
+				if job.min_age:
 					if job.min_age - 1 <=  age:
 						matching += 20
 					final+=10
@@ -235,76 +243,76 @@ class Application (TimeStampedModel):
 					if age <= job.max_age + 1:
 						matching += 20
 					final+=10
-					
+
 			if job.gender:
 				if job.gender == applicant.gender:
 					matching += 20
 				final+=20
-			
+
 			if job.experience:
 				experience = (datetime.date.today() - (applicant.work_experience_set.all().order_by('start_date')[0].start_date)).days/365
 				if experience >= job.experience - 1:
 					matching += 10
 				final+=10
-			
+
 			if job.education_level:
-				
+
 				education = applicant.education_set.all().order_by('level')[0]
 				if education.level <= job.education_level:
 					matching += 50
 				final+=50
-				
+
 				if job.course:
 					education_course = applicant.education.course.values_list('pk', flat = True)
 					if job.course.filter(pk__in=education_course).exist():
 						matching += 30
 					final += 30
-				
+
 				if job.ipk:
 					if education.ipk >= job.ipk:
 						matching += 20
 					final += 20
-			
+
 			if job.skill:
-			
+
 				applicant_skill = applicant.skill.values_list('pk', flat=True)
 				matching += job.skill.filter(pk__in=applicant_skill).count() * 5
-				final += job.skill.count() *5 
-				
+				final += job.skill.count() *5
+
 			if job.language:
-			
+
 				applicant_language = applicant.language.values_list('pk', flat=True)
 				matching += job.language.filter(pk__in=applicant_language).count() * 5
-				final += job.language.count() *5 
-			
+				final += job.language.count() *5
+
 			if final == 0:
 				self.matching = 0
 			else:
 				matching = matching*100/final
 				self.matching = matching
-			
+
 		return super(Application, self).save(*args, **kwargs)
-		
+
 class Location(models.Model):
 	name = models.CharField(max_length=50, unique=True)
 	def __unicode__(self):
 		return self.name
-		
+
 class Job_Type(models.Model):
 	name = models.CharField(max_length=50, unique=True)
 	def __unicode__(self):
 		return self.name
-		
+
 class Skill(models.Model):
 	name = models.CharField(max_length=50,blank=True,null=True)
 	def __unicode__(self):
 		return self.name
-		
+
 class Language(models.Model):
 	name = models.CharField(max_length=50, unique=True)
 	def __unicode__(self):
 		return self.name
-	
+
 class Industry(models.Model):
 	name = models.CharField(max_length=50, unique=True)
 	def __unicode__(self):
